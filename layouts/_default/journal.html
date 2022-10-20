@@ -1,0 +1,30 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+    <article class="page single">
+        {{- /* Content */ -}}
+        <div class="content" id="content">
+            <div id="journal">
+                <div class="top">
+                    <p><i class="fas fa-chevron-left"></i></p>
+                    <div class="text">对方正在输入中……</div>
+                    <p><i class="fas fa-ellipsis-h"></i></p>
+                </div>
+                <hr>
+                {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                
+                {{- /* Featured image */ -}}
+                {{- $image := $params.featuredimage -}}
+                {{- with .Resources.GetMatch "featured-image" -}}
+                    {{- $image = .RelPermalink -}}
+                {{- end -}}
+                {{- with $image -}}
+                    <div class="featured-image">
+                        {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
+                    </div>
+                {{- end -}}
+            </div>
+        </div>
+    </article>
+{{- end -}}

@@ -1,0 +1,22 @@
+{{ if .IsNamedParams }}
+<a target="_blank" href=https://movie.douban.com/subject/{{ .Get "link" }} class="shelfBook">
+  <div class="subject clearfix">
+    <div id="mainpic">
+      <img style="width: 200px;" src="https://img0.baidu.com/it/u=3042682154,769726113&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=684" alt="封面">
+    </div>
+    <div id="info">
+      <p>恐怖游轮</p>
+      <p>Triangle</p>
+      <p>99 分钟 / 剧情 / 悬疑 / 惊悚 / 克里斯托弗·史密斯（导演） / 导演: 克里斯托弗·史密斯 / 2009-10-16(英国)</p>
+    </div>
+  </div>
+  <div id="interest_sectl">
+    <div class="rating_wrap clearbox">
+      <div class="clearfix">
+        <div class="rating_logo ll">豆瓣评分</div>
+      </div>
+    </div>
+  </div>
+  
+</a>
+{{ end }}

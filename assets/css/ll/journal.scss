@@ -1,0 +1,118 @@
+.content#content {
+  padding: 0 !important;
+  #journal {
+    .top {
+      display: flex;
+      margin: 1rem auto;
+      &+hr {
+        height:1px;
+        margin-bottom: 2rem;
+        border:none;
+        border-top:1px dashed #ef3982;
+      }
+      p {
+        width: 8%;
+        margin-left: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        &>i::before {
+          font-size: 1.6rem;
+        }
+      }
+      .text {
+        width: 84%;
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items:center; 
+      }
+    }
+    h2 {
+      color: #555555;
+      font-size: 1rem;
+      text-align: center;
+      font-weight: normal;
+      letter-spacing: 1px;
+      margin: 1rem 0;
+      .header-mark:before {
+        content: none;
+      }
+    }
+    .box {
+      margin: 1rem;
+      display: flex;
+      &>img {
+        height: 40px;
+        margin-right: 1rem;
+        border-radius: 4px;
+      }
+      & .text {
+        text-align: justify;
+        line-height: 2rem;
+        background-color: #9eea6a;
+        padding: .5rem 1rem;
+        display: inline-block;
+        border-radius: 4px;
+        position: relative;
+        &:after{
+          content: '';
+          border: 6px solid #ffffff00;
+          border-right: 6px solid #9eea6a;
+          position: absolute;
+          top: 12px;
+          left: -12px;
+        }
+        p {
+          margin: 0 !important;
+          padding: .5rem 0;
+        }
+        p:first-child {
+          padding-top: 0;
+        }
+        p:not(:only-child):last-of-type {
+          padding-bottom: 0;
+        }
+        ul li p {
+          padding: 0;
+        }
+      }
+      &+hr {
+        margin: 1.6rem 0;
+        height:1px;
+        border:none;
+        border-top:1px dashed rgba($color: #000000, $alpha: 0.15);
+      }
+    }
+  }
+}
+[theme=dark] .content#content {
+  #journal {
+    .top {
+      color: #ddd !important;
+      &+hr {
+        border-top:1px dashed #53b3d4;
+      }
+    }
+    h2 {
+      color: #ddd;
+    }
+    .box {
+      .text {
+        background-color: #1b1b1b;
+        color: #ddd;
+        strong {
+          color: #53b3d4;
+        }
+        &:after{
+          border-right: 6px solid #1b1b1b;
+        }
+      }
+      &+hr {
+        border-top:1px dashed rgba($color: #ffffff, $alpha: 0.2);
+      }
+    }
+  }
+}

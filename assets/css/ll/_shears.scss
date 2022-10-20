@@ -1,0 +1,46 @@
+.weixin {
+  .shears {
+    display: block;
+    margin: 2rem 0;
+    hr.end {
+      display: block;
+      border-width: 2px !important;
+      border-style: dashed hidden !important;
+      border-color: $single-link-hover-color !important;
+      padding: 1px 0 !important;
+      position: relative;
+      width: calc(100% - 4px);
+      &:before {
+        color: $single-link-hover-color !important;
+        position: absolute;
+        top: -9px;
+        left: 5%;
+        z-index: 1;
+        // content: '\f0c4';
+        content: '\f197';
+        font-family: 'Font Awesome 5 Free';
+        font-size: 20px;
+        font-weight: 600;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        -ms-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out;
+        display: inline-block;
+      }
+      &:hover:before {
+        left: calc(95% - 20px);
+      }
+    }
+  }
+}
+[theme=dark] .weixin .shears hr.end {
+  border-color: $single-link-hover-color-dark !important;
+  &:before {
+      color: $single-link-hover-color-dark !important;
+  }
+}

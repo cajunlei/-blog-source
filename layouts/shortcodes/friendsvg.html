@@ -1,0 +1,18 @@
+{{ if .IsNamedParams }}
+<a target="_blank" href={{ .Get "url" }} title={{ .Get "name" }} class="friend">
+  <div class="card">
+    <img src="{{ .Site.Params.cdnPrefix }}{{ .Get "img" }}" alt="{{ .Get "name" }}">
+    <div class="box">
+      <div class="left">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href={{ .Get "logo" }}></use>
+        </svg>
+      </div>
+      <div class="right">
+        <div class="name">{{ .Get "name" }}</div>
+        <div class="info">{{ .Get "word" }}</div>
+      </div>
+    </div>
+  </div>
+</a>
+{{ end }}

@@ -1,0 +1,4 @@
+{{ $options := (dict "targetPath" "/css/ll/since.css" "outputStyle" "compressed" "enableSourceMap" true) }}
+{{ $style := resources.Get "css/ll/since.scss" | resources.ToCSS $options }}
+
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">

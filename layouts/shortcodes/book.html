@@ -1,0 +1,10 @@
+{{ if .IsNamedParams }}
+<a target="_blank" href=https://book.douban.com/subject/{{ .Get "link" }} class="shelfBook">
+  <div class="cover">
+    <label class="{{ .Get "class" }}"></label>
+    <img src={{ .Site.Params.cdnPrefix }}/Book/small/{{ .Get "cover" }} alt="书籍封面">
+  </div>
+  <div class="name">《{{ .Get "name" }}》</div>
+  <div class="author">作者：{{ .Get "author" }}</div>
+</a>
+{{ end }}

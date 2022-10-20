@@ -1,0 +1,27 @@
+#content h2#参考链接+ul {
+    padding-left: 2rem;
+    li {
+        list-style: none;
+        position: relative;
+        text-indent: -1rem;
+        p,
+        p a {
+            display: inline;
+            margin: 0;
+        }
+        &:before {
+            font-family: iconfont;
+            content: "\e623";
+            font-weight: 800;
+            color: $single-link-color;
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 100%;
+            z-index: 100;
+            position: relative;
+            padding-right: .5rem;
+            width: 1rem;
+            left: 1rem;
+        }
+    }
+}

@@ -1,0 +1,205 @@
+p {
+  font-size: 1.2rem;
+  line-height: 200%;
+  margin: 1rem 0;
+}
+blockquote {
+  font-style: italic;
+}
+h2 {
+  font-size: 1.8rem !important;
+  padding: .5rem 0;
+}
+section.test-results.diplomat {
+  display: flex;
+  font-family: Open Sans,Helvetica Neue,Arial!important;
+  margin-right: 1rem;
+  color: #51596a;
+  .type-info {
+    width: 35%;
+    padding-top: 3rem;
+    text-align: center;
+    .caption {
+      font-size: 1.6em;
+      padding-bottom: 3rem;
+    }
+    .type-name {
+      font-weight: bold;
+      font-size: 3.5em;
+      padding-bottom: 3rem;
+    }
+    .type-code {
+      color: #33a474;
+      font-weight: bold;
+      font-size: 2.5em;
+    }
+    #advocate {
+      margin-top: 3rem;
+      width: 90%;
+    }
+  }
+  .trait-scales {
+    width: 65%;
+    font-size: 1.2em;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #535353;
+    padding: 1rem 2rem;
+    .trait {
+      font-weight: bold;
+      border-bottom: 1px solid #cacaca;
+      padding: 1rem 0;
+      width: 100%;
+      .caption {
+        font-size: 1.5em;
+        margin: .5rem 0;
+        text-align: center;
+      }
+      .pb-wrp {
+        .bar-wrapper {
+          align-items: center;
+          display: flex;
+          margin-bottom: .5rem;
+          .percentage {
+            flex: 0 0 60px;
+            font-size: 1.2em;
+          }
+          .bar {
+            border-radius: 10px;
+            flex-grow: 1;
+            overflow: hidden;
+            height: 12px;
+            .filler {
+              height: 12px;
+            }
+          }
+          .percentage.right {
+            text-align: right;
+          }
+        }
+        .trait-titles {
+          display: flex;
+          justify-content: space-between;
+          .title{
+            font-size: .9em;
+            color: #9b9faa;
+            &.right.active {
+              text-align: right;
+            }
+          }
+        }
+      }
+      &.mind {
+        .bar.right-fill {
+          background-color: #4298b4;
+          .filler {
+            background-color: #e2e2e2;
+          }
+        }
+        .percentage.right.active,
+        .title.right.active {
+          color: #4298b4;
+        }
+      }
+      &.energy {
+        .bar.left-fill {
+          background-color: #e2e2e2;
+          .filler {
+            background-color: #e4ae3a;
+          }
+        }
+        .percentage.active,
+        .title.left.active {
+          color: #e4ae3a;
+        }
+      }
+      &.nature {
+        .bar.right-fill {
+          background-color: #33a474;
+          .filler {
+            background-color: #e2e2e2;
+          }
+        }
+        .percentage.right.active,
+        .title.right.active {
+          color: #33a474;
+        }
+      }
+      &.tactics {
+        .bar.left-fill {
+          background-color: #e2e2e2;
+          .filler {
+            background-color: #88619a;
+          }
+        }
+        .percentage.active,
+        .title.left.active {
+          color: #88619a;
+        }
+      }
+      &.identity {
+        .bar.left-fill {
+          background-color: #e2e2e2;
+          .filler {
+            background-color: #f25e62;
+          }
+        }
+        .percentage.active,
+        .title.left.active {
+          color: #f25e62;
+        }
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  p {
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: 1.25rem !important;
+  }
+  section.test-results.diplomat {
+    display: block;
+    .type-info {
+      margin: 0 auto;
+      padding: 0;
+      .caption,
+      .type-name {
+        padding-bottom: 2rem;
+      }
+      #advocate {
+        display: none;
+      }
+    }
+    .trait-scales {
+      margin: 1rem auto;
+      width: 90%;
+    }
+  }
+}
+@media only screen and (max-width: 680px) {
+  section.test-results.diplomat {
+    .type-info {
+      width: 90%;
+      .caption {
+        font-size: 1.2em;
+        padding-bottom: 1rem;
+      }
+      .type-name {
+        font-size: 2.5em;
+        padding-bottom: 1rem;
+      }
+      .type-code {
+        font-size: 1.5em;
+      }
+    }
+    .trait-scales {
+      width: 85%;
+    }
+  }
+}

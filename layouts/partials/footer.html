@@ -1,0 +1,87 @@
+{{- if ne .Site.Params.footer.enable false -}}
+    <footer class="footer">
+        <div class="footer-container">
+            {{- /* Custom Content */ -}}
+            {{- with .Site.Params.footer.custom -}}
+                <div class="footer-line">
+                    {{- safeHTML . -}}
+                </div>
+            {{- end -}}
+
+            <div class="footer-line">
+                {{- /* 不蒜子统计 */ -}}
+                <span id="busuanzi_container_site_pv">
+                    <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;次
+                </span> | 
+                <span id="busuanzi_container_site_uv">
+                    <i class="fas fa-user"></i>&nbsp;<span id="busuanzi_value_site_uv"></span>&nbsp;人
+                </span>
+            </div>
+
+            <div class="footer-line">
+                {{- /* Copyright year */ -}}
+                {{- if ne .Site.Params.footer.copyright false -}}
+                    <i class="far fa-copyright fa-fw"></i>
+                    {{- with .Site.Params.footer.since -}}
+                        <span itemprop="copyrightYear">
+                            {{- if lt . now.Year }}{{ . }} - {{ end }}{{ now.Year -}}
+                        </span>
+                    {{- else -}}
+                        <span itemprop="copyrightYear">{{ now.Year }}</span>
+                    {{- end -}}
+                {{- end -}}
+                {{- /* Author */ -}}
+                {{- if ne .Site.Params.footer.author false -}}
+                    <span class="author" itemprop="copyrightHolder">
+                        <a href="/love/" target="_blank" one-link-mark="yes">
+                            &nbsp;
+                            <i class="fas fa-heartbeat"></i>
+                            &nbsp;
+                        </a>
+                        <a href="{{ $.Site.Author.link | default .Site.Home.RelPermalink }}" target="_blank">{{ .Site.Author.name }}</a>
+                    </span>
+                {{- end -}}
+            </div>
+
+            {{- /* Hugo and LoveIt */ -}}
+            {{- if ne .Site.Params.footer.hugo false -}}
+                <div class="footer-line">
+                    {{- $hugo := printf `<a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo %v">Hugo</a>` hugo.Version -}}
+                    {{- $theme := .Scratch.Get "version" | printf `<a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt %v"> LoveIt</a>` -}}
+                    {{- dict "Hugo" $hugo "Theme" $theme | T "poweredBySome" | safeHTML }}
+                </div>
+            {{- end -}}
+
+            <div class="footer-line">
+                {{- /* License */ -}}
+                {{- with .Site.Params.footer.license -}}
+                <span class="license">{{ . | safeHTML }}</span>
+                {{- end -}}
+                &nbsp;|
+                <span>萌ICP备</span><a href="https://icp.gov.moe/?keyword=20218899" target="_blank"> 20218899 </a><span>号</span>
+                {{- /* ICP */ -}}
+                {{- with .Site.Params.footer.icp -}}
+                    <span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">{{ . | safeHTML }}</span>
+                {{- end -}}
+            </div>
+
+            {{- /* 站点运行时间 */ -}}    
+            <div class="footer-line">
+                <span id="runtime_span"></span>
+                <script>
+                    var countDownDate = new Date('2021-09-25T00:00:00').getTime();
+                    window.setInterval(function() {
+                        var distance = new Date().getTime() - countDownDate;
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                        document.getElementById("runtime_span").innerHTML = "本站已坚持运行 " + "<i class='far fa-clock'></i> " + days + ' 天 ' + hours + ' 时 ' + minutes + ' 分 ' + seconds + ' 秒';
+                    }, 1000);
+                </script>
+            </div>
+
+        </div>
+    </footer>
+{{- end -}}

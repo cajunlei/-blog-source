@@ -1,0 +1,61 @@
+#content ul {
+		padding-left: 1rem !important;
+	li {
+		list-style: none;
+		position: relative;
+		padding: .5rem 0;
+		padding-left: 1rem;
+		text-indent: -1rem;
+		/* 行内代码 */
+		code {
+			display: inline;
+			font-size: 1rem;
+		}
+		/* 图标 */
+		 i {
+			margin-left: 1em;
+		}
+	}
+	li::before {
+		content: '';
+		width: .5rem;
+		height: .5rem;
+		background: #2d96bd;
+		display: inline-block;
+		vertical-align: middle;
+		margin: -3px 5px 0 0;
+		border-radius: 100%;
+		border: 2px solid #fff;
+		z-index: 100;
+		position: relative;
+	}
+	li::after {
+		content: '';
+		height: 100%;
+		width: 2px;
+		background: #2d96bd;
+		position: absolute;
+		left: 5px;
+		top: 22px;
+	}
+	li:last-child:after {
+		display: none;
+	}
+}
+
+#content h2#本站信息+ul li {
+    padding-left: 3.8rem;
+    text-indent: -3.8rem;
+	code {
+		padding: 0;
+		color: #15130b;
+		background-color:transparent; 
+	}
+}
+[theme=dark] #content h2#本站信息+ul li code {
+    color: #9b9da7;
+}
+#content h2#fas-fa-clock-博客事件轴~h3~ul li {
+    padding-left: 6.2rem;
+    text-indent: -6.2rem;
+}

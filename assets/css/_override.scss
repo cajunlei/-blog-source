@@ -1,0 +1,31 @@
+// ==============================
+// Override Variables
+// 覆盖变量
+// ==============================
+
+/* 分类页面 */
+.wrapper main .container .page .categories-card {
+    margin-top: 0;
+}
+/* 文字两端对齐 */
+.content p {
+    text-align: justify;
+}
+/* Twikoo评论区高度 */
+textarea.el-textarea__inner {
+    min-height: 100px !important;
+}
+/* footer红心 */
+.fas.fa-heartbeat {
+    animation: flash 3s ease infinite;
+    color: #ff0000;
+}
+/* 全局字体 */
+html {
+    font-size: 18px;
+    line-height: 180%;
+}
+/* 正文间距 */
+.single .content p {
+    margin: .6rem auto .6rem auto;
+}

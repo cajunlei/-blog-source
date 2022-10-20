@@ -1,0 +1,68 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+    <article class="page single">
+        {{- /* Content */ -}}
+        <div class="content" id="content">
+            <div id="moments">
+                <div class="top">
+                    <div id="background">
+                        <img src="{{ .Site.Params.cdnPrefix }}/Moments/Cover.webp" alt="Background">
+                        <p id="top-left" ><i class="fas fa-chevron-left"></i></p>
+                    <p id="top-right" ><i class="fas fa-camera"></i></p>
+                    </div>
+                    <div class="avatar" >
+                        <p id="avatar" >守 正</p>
+                        <img src="{{ .Site.Params.cdnPrefix }}/images/avatar.webp" alt="avatar">
+                    </div>
+                </div>
+                <div class="spacing"></div>
+                {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                
+                {{- /* Featured image */ -}}
+                {{- $image := $params.featuredimage -}}
+                {{- with .Resources.GetMatch "featured-image" -}}
+                    {{- $image = .RelPermalink -}}
+                {{- end -}}
+                {{- with $image -}}
+                    <div class="featured-image">
+                        {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
+                    </div>
+                {{- end -}}
+            </div>
+            <br>
+        </div>
+    </article>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        function setTime(time,timeSelector){
+        var currentTime = Date.parse(new Date());
+        var dateTime = time;//后台传递来的时间
+        var ts = timeSelector;//选择器
+        var d_day = Date.parse(new Date(dateTime));
+        var day = Math.abs(parseInt((d_day - currentTime)/1000/3600/24));//计算日期
+        var hour = Math.abs(parseInt((d_day - currentTime)/1000/3600));//计算小时
+        var minutes = Math.abs(parseInt((d_day - currentTime)/1000/60));//计算分钟
+        var seconds = Math.abs(parseInt((d_day - currentTime)/1000));//计算秒
+        console.log(day);
+        if(day >= 2){
+            ts.text(parseInt(day)+"天前").toString();
+        }else if(day > 0 && day < 2){
+            ts.text("昨天").toString();
+        }else if(hour > 0 && hour < 24){
+            ts.text(parseInt(hour)+"小时前").toString();
+        }else if(minutes > 0 && minutes < 60){
+            ts.text(parseInt(minutes)+"分钟前").toString();
+        }else if(seconds > 0 && seconds < 60){
+            ts.text(parseInt(seconds)+"秒前").toString();
+        }
+        }
+        //列表里面调用方法，传递两个参数 数据库时间和选择器
+        $(".one-comment").each(function(){
+        var t_time = $(this).find(".time").text();
+        var timeSelector = $(this).find(".time");
+        setTime(t_time,timeSelector);
+        })
+    </script>
+{{- end -}}

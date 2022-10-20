@@ -1,0 +1,8 @@
+{{- $inner := .Inner | .Page.RenderString -}}
+
+<div class="box">
+  <img src="{{ .Site.Params.cdnPrefix }}/images/avatar.webp" alt="守正">
+  <div class="text">
+    {{- $inner -}}
+  </div>
+</div>

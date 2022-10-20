@@ -1,0 +1,16 @@
+{{- $inner := .Inner | .Page.RenderString -}}
+
+<div class="one-comment">
+  <div class="left">
+    <img src="{{ .Site.Params.cdnPrefix }}/images/avatar.webp" alt="守正">
+  </div>
+  <div class="right">
+    <div class="comment" >
+      <p class="author" >守正</p>
+      {{- $inner -}}
+    </div>
+    <p class="add" >{{ .Get "add" }}</p>
+    <p class="time">{{ .Get "time" }}</p>
+  </div>
+</div>
+<hr>

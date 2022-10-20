@@ -1,0 +1,21 @@
+{{- $params := .Params | merge .Site.Params.page -}}
+{{- $author := $params.author | default .Site.Author.name -}}
+{{- $authorLink := $params.authorLink | default .Site.Author.link -}}
+
+<div class="weixin">
+    <div class="shears">
+        <hr class="end"></hr>
+    </div>
+    <ul class="post-copyright" id="post-copyright">
+        <li><b>文章作者：</b><a href="{{ $authorLink }}" target="_blank" one-link-mark="yes">{{- $author -}}</a></li>
+        <li><b>文章标题：</b>{{- .Title -}}</li>
+        <li class="post-copyright-link"><b>原文链接：</b><a href="{{- .RelPermalink -}}" target="_blank" one-link-mark="yes">{{- .Site.Author.link -}}{{ .RelPermalink }}</a></li>
+        <li><b>版权声明：</b>本站所有文章除特别声明外，均采用<a rel="external nofollow noopener noreferrer" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" one-link-mark="yes"><code>CC BY-NC-ND 4.0</code></a>国际许可协议，若转载请注明出处！</li>
+    </ul>
+    <h2 id="fab-fa-weixin-分享到朋友圈" class="headerLink" tabindex="-1" style="outline: none;"><i class="fab fa-weixin"></i>&nbsp;分享到朋友圈</h2>
+    <div class="images">
+        <img class="slogan" src="{{- .Site.Params.cdnPrefix -}}/images/scan-share.jpg">
+        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?data={{- .Site.Author.link -}}{{ .RelPermalink }}&amp;size=300x300" alt="微信扫一扫 分享朋友圈" title="" />
+        <img class="avatar" src="{{- .Site.Params.cdnPrefix -}}{{- .Site.Params.home.profile.avatarURL -}} " alt="avatar">
+    </div>
+</div>

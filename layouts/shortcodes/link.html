@@ -1,0 +1,13 @@
+{{ if .IsNamedParams }}
+<a target="_blank" href={{ .Get "url" }} title={{ .Get "name" }} class="link">
+  <div class="box">
+    <div class="left">
+      <img class="icon" src="{{ .Get "logo" }}">
+    </div>
+    <div class="right">
+      <div class="name">{{ .Get "name" }}</div>
+      <div class="info">{{ .Get "word" }}</div>
+    </div>
+  </div>
+</a>
+{{ end }}

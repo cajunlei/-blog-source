@@ -1,0 +1,98 @@
+@mixin book1 {
+	margin: 0 auto;
+	display: block;
+	width: 22%;
+	height: auto;
+}
+@mixin book2 {
+	text-align: center;
+	margin-top: .5em;
+	line-height: 1.3em;
+}
+.wrapper main .container .page #content {
+	a:after {
+		content: none !important;
+	}
+	h2 {
+		padding: 0;
+		margin: 1rem 0;
+	}
+	.book_list {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		.shelfBook {
+			@include book1;
+			.cover {
+				position: relative;
+				label {
+					line-height: 1.5;
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					overflow: hidden;
+					&::before {
+						color: #fff;
+						font-family: 'Courier New';
+						text-align: center;
+						position: absolute;
+						top: 35px;
+						right: 35px;
+						width: 200px;
+						height: 3rem;
+						font-size: 2rem;
+						transform-origin: bottom center;
+						transform: translate(50%, -100%) rotate(45deg) scale(.5);
+					}
+					&.finish::before {
+						background-color: rgba($color: #fa595f, $alpha: 0.9);
+						content: '读 完';
+					}
+					&.reading::before {
+						background-color: rgba($color: #f1c79a, $alpha: 0.9);
+						content: '在 读';
+					}
+					&.want::before {
+						background-color: rgba($color: #53668c, $alpha: 0.9);
+						content: '想 读';
+					}
+				}
+			}
+			.name{
+				@include book2;
+				font-size: 1rem;
+				font-weight: bold;
+			}
+			.author{
+				@include book2;
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+		}
+		.placeholder {
+			@include book1;
+		}
+	}
+}
+
+@media screen and (max-width:1200px){
+    .shelfBook,
+    .placeholder {
+        width: 22% !important;
+    }
+}
+@media screen and (max-width:960px){
+    .shelfBook,
+    .placeholder {
+        width: 30% !important;
+    }
+}
+@media screen and (max-width:680px){
+    .shelfBook,
+    .placeholder {
+        width: 45% !important;
+    }
+}

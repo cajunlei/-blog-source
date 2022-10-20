@@ -1,0 +1,66 @@
+#since {
+  padding: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: bold;
+}
+h1.single-title.animated.pulse.faster {
+  display: none;
+}
+#content {
+  text-align: center;
+  h3,
+  h6 {
+    font-weight: bold;
+    padding: 1rem 0px;
+  }
+  h3>a,
+  h6>a {
+    display: none;
+  }
+  h6 {
+    font-family: 'Lora', serif;
+    font-style: italic;
+  }
+  #clockdiv {
+    width: 100%;
+    color: #6b6ee9;
+    display: flex;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    padding: 1rem 0;
+    &>div {
+      width: 20%;;
+      p {
+        text-align: center;
+      }
+    }
+    .smalltext {
+      padding-top: 1rem;
+      font-size: 1.2rem;
+      color: #0f0f0f;
+    }
+  }
+}
+
+@media screen and (max-device-width:960px){
+  #content {
+    h3 {
+      font-size: 1rem;
+    }
+    h6 {
+      font-size: .8rem;
+      margin: 0;
+    }
+    #clockdiv {
+      font-size: 1.5rem;
+      .smalltext {
+        font-size: .9rem;
+        padding: 0;
+      }
+    }
+  }
+}

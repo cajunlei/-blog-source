@@ -1,0 +1,31 @@
+/* 图片-日间模式 */
+img.caption,
+img.l-img,
+.cover img {
+    height: auto;
+    border-radius: 8px;
+    display: table-cell;
+    vertical-align: middle;
+    overflow: visible;
+    box-shadow: 2px 2px 5px #909090;
+}
+img.caption {
+    margin: 1rem auto .5rem auto;
+}
+img.l-img,
+.cover img {
+    margin: 1rem auto;
+}
+/* 图片-夜间模式 */
+[theme=dark] img.caption,
+[theme=dark] img.l-img,
+[theme=dark] .cover img {
+    box-shadow: 2px 2px 1px 1px rgba(255, 255, 255, .3);
+}
+/* 图片-移动端 */
+@media only screen and (max-width: 960px) {
+    img.caption,
+    img.l-img {
+        width: 95%;
+    }
+}

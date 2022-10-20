@@ -1,0 +1,37 @@
+// ==============================
+// Custom style
+// 自定义样式
+// ==============================
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// single
+@import "ll/single";
+// 图片
+@import "ll/images";
+// 归档
+@import "ll/archive";
+// 背景半透明
+@import "ll/background";
+// 子菜单栏
+@import "ll/submenu";
+// 鼠标样式
+@import "ll/mouse";
+// 更换字体
+@import "ll/font";
+// 打赏
+@import "ll/reward";
+// 序号目录
+@import "ll/toc";
+// 参考链接
+@import "ll/refer";
+// 页尾小剪刀
+@import "ll/shears";
+// 分享到朋友圈
+@import "ll/wechatshare";
+// 评论区
+@import "ll/valine";
+// 回到底部
+@import "ll/fixedbutton";

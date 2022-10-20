@@ -1,0 +1,4 @@
+<div class="caption-wrapper">
+  <img class="caption" src="{{ .Site.Params.cdnPrefix }}{{ .Get "src" }}" alt="{{ .Get "alt" }}"  width="{{ if .Get "width" }}{{ .Get "width" }}{{ else }}95%{{ end }}" >
+  <span class="caption" style="font-size: 0.9em; color: #999; text-align: center; display: block;" >▲ {{ .Get "alt" }}</span>
+</div>

@@ -1,0 +1,195 @@
+/* 背景半透明 */
+/* 页面中间主体部分 */
+$backgroundcolor: rgba($global-background-color, 0.9);
+$backgroundcolor-dark: rgba($global-background-color-dark, 0.95);
+.page {
+    max-width: 900px;
+    width: 100%;
+}
+// 日间模式底色
+.wrapper {
+    // 页脚
+    footer {
+        display: block;
+        margin: 0 auto;
+        max-width: 900px;
+        height: auto;
+        padding: 1rem 0 .5rem 0;
+        background-color: $backgroundcolor;
+    }
+    main .container {
+        padding: 0;
+        .page,
+        .toc {
+            background-color: $backgroundcolor;
+        }
+    }
+}
+// 夜间模式底色
+[theme=dark] .wrapper {
+    footer {
+        background-color: $backgroundcolor-dark;
+    }
+    main .container {
+        .page, .toc {
+            background-color: $backgroundcolor-dark;
+        }
+    }
+}
+@mixin padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.wrapper main .container {
+    // 主页
+    .page.home[posts] article.single.summary {
+        @include padding; 
+    }
+    // 文章
+    .page.single {
+        // 标题
+        h1.single-title.animated.flipInX,
+        .post-meta {
+            @include padding;
+        }
+        // 文章<p>标签
+        .content#content {
+            // 页首
+            @include padding;
+            p,
+            .table-wrapper,
+            .details.admonition,
+            blockquote,
+            .highlight,
+            .weixin #post-copyright {
+                margin-left: 1rem;
+                margin-right: 1rem;
+                .table-wrapper {
+                    margin: 0;
+                }
+            }
+        }
+        // 文章评论区
+        #comments {
+            margin: 0;
+            padding: 1rem;
+            // 文章评论区下方文字
+            #valine .vempty {
+                padding: 0;
+            }
+        }
+        // 文章页脚
+        .post-footer#post-footer {
+            padding: 0 1rem 3rem;
+        }
+    }
+    // 链接3个+关于
+    .page.single.special {
+        // 标题
+        h1.single-title.animated.pulse.faster,
+        .content#content {
+            @include padding;
+        }
+    }
+    // 页码
+    .page .pagination {
+        width: auto;
+        padding-bottom: 1rem;
+    }
+    .page.archive {
+        // 归档
+        h3.group-title {
+            @include padding;
+        }
+        // 归档、分类、标签标题
+        h2.single-title.animated.pulse.faster {
+            padding: 1rem;
+        }
+        // 分类正文
+        .categories-card {
+            @include padding;
+            .card-item {
+                width: 49%;
+                padding: 0;
+            }
+        }
+        // 标签正文
+        .tag-cloud-tags {
+            padding: 1rem;
+            margin: 0;
+        }
+    }
+}
+
+.home[posts] .summary {
+    border-bottom: 1px dashed #252627;
+}
+[theme=dark] .home[posts] .summary {
+    border-bottom: 1px dashed #e6e6e6;
+}
+@media only screen and (max-width: 1440px) {
+  .page,
+  .wrapper footer {
+    width: 56%;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .page,
+  .wrapper footer {
+    width: 52%;
+  }
+  #header-desktop .header-wrapper {
+    padding-right: 1rem;
+  }
+  .search-dropdown.desktop {
+    right: 1rem;
+  }
+}
+@media only screen and (max-width: 960px) {
+  #toc-auto {
+    display: none;
+  }
+  #toc-static {
+    display: block;
+  }
+  .page,
+  .wrapper footer {
+    width: 80%;
+  }
+  #header-desktop .header-wrapper {
+    padding-left: 1rem;
+  }
+}
+@media only screen and (max-width: 680px) {
+    .single {
+        .content>h2 {
+            font-size: 1.35rem;
+        }
+        .content>h3 {
+            font-size: 1.2rem;
+        }
+    }
+    .wrapper main .container {
+        /* 文章页脚 */
+        .page.single .post-footer#post-footer {
+            padding-bottom: 5rem;
+        }
+        /* 分类正文 */
+        .page.archive .categories-card .card-item {
+            width: 100%;
+        }
+    }
+    #header-desktop {
+        display: none;
+    }
+    #header-mobile {
+        display: block;
+    }
+    .page,
+    .wrapper footer {
+        width: 100%;
+    }
+    body.blur {
+        overflow: hidden;
+    }
+}

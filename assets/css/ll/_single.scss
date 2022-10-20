@@ -1,0 +1,20 @@
+/* h2标题小电视 */
+.single {
+  .content {
+    > h2 > .header-mark::before {
+      font-family: iconfont;
+      content: "\e628";
+    }
+  }
+}
+/* 图片 */
+.caption-wrapper {
+  margin: 1rem auto;
+  img.caption {
+    max-width: 95%;
+  }
+}
+/* 画廊图片 */
+figcaption {
+  display: none !important;
+}

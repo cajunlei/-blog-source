@@ -1,0 +1,38 @@
+@font-face {
+  font-family:sloganFont;
+  src: url(https://cdn.jsdelivr.net/gh/cajunlei/ImageBed/fonts/slogan.woff2) format('woff2')
+}
+@font-face {
+  font-family:titleFont;
+  src: url(https://cdn.jsdelivr.net/gh/cajunlei/ImageBed/fonts/title.woff2) format('woff2')
+}
+.wrapper {
+  main .container .page.home .home-profile h2.home-subtitle {
+    font-family:"sloganFont" !important;
+  }
+  .header-wrapper .header-title a {
+    font-family:"titleFont" !important;
+  }
+}
+
+// 文章链接末尾小图标
+@font-face {
+  font-family: 'iconfont';  /* Project id 3027393 */
+  src: url('//at.alicdn.com/t/font_3027393_bqe7ffvyh.woff2?t=1641477988546') format('woff2'),
+       url('//at.alicdn.com/t/font_3027393_bqe7ffvyh.woff?t=1641477988546') format('woff'),
+       url('//at.alicdn.com/t/font_3027393_bqe7ffvyh.ttf?t=1641477988546') format('truetype');
+}
+.content a[target=_blank]:after {
+  font-family: iconfont;
+  content: "\e627";
+  color: #aaa !important;
+  margin: 0 5px;
+}
+
+@font-face {
+  font-family:LXGWFont;
+  src: url(https://cdn.jsdelivr.net/gh/cajunlei/ImageBed/fonts/LXGWWenKaiMono-Regular.woff2) format('woff2')
+}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
+
+$header-title-font-family: Nunito, $global-font-family;
